@@ -96,7 +96,7 @@ after_script:
 
 deploy:
   on:
-  all_branches: true
+    all_branches: true
   provider: script
   script: bash -c "echo \"${DOCKER_PASSWORD}\"|docker login --username \"${DOCKER_LOGIN}\" --password-stdin"
 
