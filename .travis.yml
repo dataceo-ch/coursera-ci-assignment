@@ -98,4 +98,4 @@ deploy:
   script: bash -c "echo \"${DOCKER_PASSWORD}\"|docker login --username \"${DOCKER_LOGIN}\" --password-stdin"
 
 
-# Force PR
+# Force PR (wrong merge fix)
