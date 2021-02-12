@@ -96,3 +96,6 @@ deploy:
   on: master
   provider: script
   script: bash -c "echo \"${DOCKER_PASSWORD}\"|docker login --username \"${DOCKER_LOGIN}\" --password-stdin"
+
+
+# Force PR
