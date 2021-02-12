@@ -93,8 +93,7 @@ after_script:
   - find . -name jacocoTestReport.csv|xargs cat|awk -F',' '{print $3" "$4" "$5}'
 
 deploy:
+  #on: master
   provider: script
   script: bash -c "echo \"${DOCKER_PASSWORD}\"|docker login --username \"${DOCKER_LOGIN}\" --password-stdin"
 
-
-# Force PR (wrong merge fix)
