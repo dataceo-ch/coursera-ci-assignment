@@ -97,5 +97,6 @@ deploy:
   provider: script
   script: bash -c "echo \"${DOCKER_PASSWORD}\"|docker login --username \"${DOCKER_LOGIN}\" --password-stdin"
 
-#Comment to force trigerring travis
-
+#
+# Comment to force trigerring travis
+#
