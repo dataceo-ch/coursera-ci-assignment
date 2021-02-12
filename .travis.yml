@@ -1,7 +1,8 @@
 language: java
 jdk: oraclejdk8
 dist: trusty
-
+services:
+  - docker
 
 env:
   global:
@@ -10,13 +11,14 @@ env:
 
 
 before_install:
-  - "./gradlew clean jar"
+  - ./gradlew clean jar
 
 script:
   - echo "Not running ./gradlew test in favor to the following check test"
 
 stages:
   - check
+
 jobs:
   include:
     - stage: check
@@ -38,7 +40,7 @@ jobs:
         - COMPONENT="service"
         - ITEM="cart"
 
-  - stage: check
+    - stage: check
       name: "$COMPONENT $ITEM check"
       install: skip
       script:
@@ -48,7 +50,7 @@ jobs:
         - COMPONENT="service"
         - ITEM="user"
 
-  - stage: check
+    - stage: check
       name: "$COMPONENT $ITEM check"
       install: skip
       script:
@@ -58,7 +60,7 @@ jobs:
         - COMPONENT="repository"
         - ITEM="order"
 
-  - stage: check
+    - stage: check
       name: "$COMPONENT $ITEM check"
       install: skip
       script:
@@ -68,7 +70,7 @@ jobs:
         - COMPONENT="repository"
         - ITEM="cart"
 
-  - stage: check
+    - stage: check
       name: "$COMPONENT $ITEM check"
       install: skip
       script:
@@ -78,7 +80,7 @@ jobs:
         - COMPONENT="repository"
         - ITEM="product"
 
-  - stage: check
+    - stage: check
       name: "$COMPONENT $ITEM check"
       install: skip
       script:
