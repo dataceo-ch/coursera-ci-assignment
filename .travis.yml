@@ -100,7 +100,7 @@ deploy:
   on:
     branch: master
     condition: "$COMPONENT = ui"
-  script: ./script/deploy.sh
+  script: ./script/deploy.sh 
 
 #
 # Comment to force trigerring travis
