@@ -95,9 +95,12 @@ after_script:
   - find . -name jacocoTestReport.csv|xargs cat|awk -F',' '{print $3" "$4" "$5}'
 
 deploy:
-  on: master
+  skip_cleanup: true
   provider: script
-  script: bash -c "echo \"${DOCKER_PASSWORD}\"|docker login --username \"${DOCKER_LOGIN}\" --password-stdin"
+  on:
+    branch: master
+    condition: "$COMPONENT = ui"
+  script: ./script/deploy.sh
 
 #
 # Comment to force trigerring travis
